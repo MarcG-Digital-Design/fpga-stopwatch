@@ -22,18 +22,15 @@ fpga-stopwatch/
 │   ├── Chronometre.qpf       # Quartus project
 │   ├── Chronometre.qsf       # Device, source files and pin assignments
 │   └── Chronometre.sdc       # 50 MHz base clock constraint
-├── sim/
-│   └── compile.do            # Portable Questa/ModelSim RTL compilation script
 ├── doc/
-│   ├── architecture.png     # Functional diagram extracted from project notes
-│   └── configuration.md     # Packaging changes and validation status
+│   └── main_architecture.png # Diagram from the original project notes
 ├── .gitignore
 └── README.md
 ```
 
 ## Architecture
 
-![Stopwatch functional architecture](doc/architecture.png)
+![Stopwatch functional architecture](doc/main_architecture.png)
 
 The diagram presents the functional chain: time base, seconds, minutes, binary-to-BCD conversion and seven-segment decoding. In the current source files, the time base and seconds counter are combined in `diviseur_seconde.vhd`. The minute counter uses `OV_seconde` as an enable on the 50 MHz clock, rather than as a separate clock.
 
@@ -66,7 +63,6 @@ The decimal points are off. After reset, set `SW[1]` to 0 and `SW[0]` to 0 to st
 
 - DE10-Lite board and USB-Blaster connection.
 - Quartus Prime with MAX 10 device support. The original project records Quartus Prime 25.1 Lite Edition as its last version.
-- Optional: Questa/ModelSim for RTL compilation and future testbenches.
 
 The device assignment is preserved from the original project: `10M50DAF484C6GES`. Check it against the FPGA fitted to your board before compiling.
 
@@ -78,16 +74,6 @@ The device assignment is preserved from the original project: `10M50DAF484C6GES`
 4. Connect the board and open the Quartus Programmer.
 5. Select the USB-Blaster, load `quartus/output_files/Chronometre.sof`, enable **Program/Configure** and click **Start**.
 6. Reset with `SW[1]`, release it, then use `SW[0]` to run or pause.
-
-### Compile RTL for Simulation
-
-In the Questa/ModelSim Transcript, run:
-
-```tcl
-do path/to/fpga-stopwatch/sim/compile.do
-```
-
-The script resolves paths relative to its own location. It compiles the RTL but does not generate input stimuli or verify stopwatch behaviour. Functional testbenches remain to be added.
 
 ## Validation Status
 
