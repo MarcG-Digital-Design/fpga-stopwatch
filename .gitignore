@@ -1,0 +1,32 @@
+# Quartus generated files
+**/db/
+**/incremental_db/
+**/output_files/
+**/simulation/
+**/timing/
+**/board/
+*.qws
+*.qdf
+*.rpt
+*.summary
+*.sof
+*.pof
+*.jdi
+*.jditmp
+*.smsg
+*.qmsg
+*.bak
+*.bak[0-9]*
+qar_info.json
+# Simulator libraries and waveforms
+sim/work/
+sim/rtl_work/
+sim/modelsim.ini
+sim/transcript
+*.wlf
+*.vcd
+*.ghw
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
