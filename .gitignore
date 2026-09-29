@@ -30,3 +30,6 @@ sim/transcript
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local project notes
+doc/configuration.md
