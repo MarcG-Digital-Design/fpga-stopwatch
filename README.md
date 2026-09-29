@@ -30,7 +30,7 @@ fpga-stopwatch/
 
 ## Architecture
 
-![Stopwatch functional architecture](doc/main_architecture2.png)
+![Stopwatch functional architecture](doc/chronometre_top.drawio.png)
 
 The diagram presents the functional chain: time base, seconds, minutes, binary-to-BCD conversion and seven-segment decoding. In the current source files, the time base and seconds counter are combined in `diviseur_seconde.vhd`. The minute counter uses `OV_seconde` as an enable on the 50 MHz clock, rather than as a separate clock.
 
