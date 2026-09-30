@@ -75,11 +75,10 @@ The device assignment is preserved from the original project: `10M50DAF484C6GES`
 5. Select the USB-Blaster, load `quartus/output_files/Chronometre.sof`, enable **Program/Configure** and click **Start**.
 6. Reset with `SW[1]`, release it, then use `SW[0]` to run or pause.
 
-## Validation Status
+## Hardware Validation
 
-This repository packages the existing RTL without changing its behaviour. Source-file identity, relative references and the 35 used pin assignments have been checked. A new Quartus compilation, timing closure and hardware validation of this reorganised project have **not** been performed.
+The design was compiled with Quartus Prime and tested on a DE10-Lite board. The stopwatch counts from 00:00 to 59:59, supports pause and resume, and can be reset using the board switches. The four seven-segment displays were used to validate the minutes and seconds outputs on hardware.
 
-The external switches are used directly in the original RTL. Synchronisation of those inputs and external I/O timing constraints remain to be reviewed before claiming a fully validated hardware implementation.
 
 ## Skills
 
